@@ -36,6 +36,16 @@ class StarpySDKTestApp extends Activity implements Responder {
     public void confirmedLogin(String result) {
         // return status;
     }
+    
+    // @Override
+    public void confirmLogin(String code) {
+        // return status;
+    }
+    
+    // @Override
+    public void requestLogin(String phone) {
+        // return status;
+    }
 
 
 
