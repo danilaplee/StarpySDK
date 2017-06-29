@@ -28,21 +28,21 @@ class StarpySDKTestApp extends Activity implements Responder {
         loadNativeDependencies();
         listener = bind( this );
     }
-    // @Override
+    @Override
     public void requestedLogin(String result) {
         // return status;
     }
-    // @Override
+    @Override
     public void confirmedLogin(String result) {
         // return status;
     }
     
-    // @Override
+    @Override
     public void confirmLogin(String code) {
         // return status;
     }
     
-    // @Override
+    @Override
     public void requestLogin(String phone) {
         // return status;
     }
