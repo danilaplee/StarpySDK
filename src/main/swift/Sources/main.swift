@@ -2,7 +2,7 @@
 import java_swift
 @_exported import Foundation
 
-let stSDK = StarpySDK()
+let stSDK = StarpySDKMain()
 
 var responder: StarpySDK_ResponderForward!
 
