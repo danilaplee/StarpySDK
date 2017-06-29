@@ -24,7 +24,7 @@ class StarpySDKTestApp extends Activity implements Responder {
     {
         super.onCreate(savedInstanceState);
         mainHandler = new Handler(StarpyApp.getContext().getMainLooper());
-        setContentView(R.layout.main);
+//         setContentView(R.layout.main);
         loadNativeDependencies();
         listener = bind( this );
     }
