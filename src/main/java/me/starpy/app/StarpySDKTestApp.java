@@ -23,7 +23,7 @@ class StarpySDKTestApp extends Activity implements Responder {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        mainHandler = new Handler(StarpyApp.getContext().getMainLooper());
+        mainHandler = new Handler(StarpySDKTestApp.getContext().getMainLooper());
 //         setContentView(R.layout.main);
         loadNativeDependencies();
         listener = bind( this );
@@ -37,15 +37,15 @@ class StarpySDKTestApp extends Activity implements Responder {
         // return status;
     }
     
-    @Override
-    public void confirmLogin(String code) {
-        // return status;
-    }
+//     @Override
+//     public void confirmLogin(String code) {
+//         // return status;
+//     }
     
-    @Override
-    public void requestLogin(String phone) {
-        // return status;
-    }
+//     @Override
+//     public void requestLogin(String phone) {
+//         // return status;
+//     }
 
 
 
