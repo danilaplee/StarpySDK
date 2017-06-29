@@ -19,9 +19,6 @@ cd - &&
 
 ./genswift.sh me.starpy.sdk /tmp/sdk.jar "" &&
 
-mkdir -p src/main/java/{me/starpy/sdk,org/genie/me_starpy_sdk} &&
+# mkdir -p src/main/java/{me/starpy/sdk,org/genie/me_starpy_sdk} &&
 
-\cp -v ./src/me/starpy/sdk*.java src/main/java/me/starpy/sdk &&
-\cp -v ./src/org/genie/me_starpy_sdk/*.java src/main/java/org/genie/me_starpy_sdk &&
-
-\cp -v ./me_starpy_sdk/Sources/*.swift ./sdk-android/src/main/swift/Sources
+# \cp -v ../me_starpy_sdk/Sources/*.swift 
