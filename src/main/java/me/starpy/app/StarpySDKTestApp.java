@@ -8,14 +8,14 @@ import android.widget.TextView;
 import me.starpy.sdk.StarpySDK.Listener;
 import me.starpy.sdk.StarpySDK.Responder;
 
-class StarpySDK extends Activity implements Responder {
+class StarpySDKTestApp extends Activity implements Responder {
 
     static Listener listener;
     Handler mainHandler;
 
     private static void loadNativeDependencies() {
         // Load libraries
-        System.loadLibrary("StarpySDK");
+        System.loadLibrary("libstarpysdk.so");
     }
 
     /** Called when the activity is first created. */
