@@ -8,7 +8,7 @@ class StarpySDK {
 	public typealias CompletionHandler = (_ status: String) -> Void
 
 	public func RequestLogin(phone:String, done:@escaping CompletionHandler) {
-        queue.async() {
+        	queue.async() {
 			// ...
 			done("success")
 		}
@@ -16,7 +16,7 @@ class StarpySDK {
 	}
 
 	public func ConfirmLogin(code:String, done:@escaping CompletionHandler) {
-        queue.async() {
+        	queue.async() {
 			// ...
 			done("success")
 		}
