@@ -8,17 +8,15 @@ var responder: StarpySDK_ResponderForward!
 
 class ListenerImpl: StarpySDK_ListenerBase {
 
-    typealias CompletionHandler = (_ status: StarpySDKStatus) -> Void
-
-    override func RequestLogin(phone:String) {
+    override func requestLogin(phone:String) {
         stSDK.RequestLogin(phone, done:{ response in
-            responder.RequestedLogin(response)
+            responder.requestedLogin(response)
         })
     }
 
-    override func ConfirmLogin(code:String) {
+    override func confirmLogin(code:String) {
         stSDK.ConfirmLogin(code, done: { response in
-            responder.ConfirmedLogin(response)
+            responder.confirmedLogin(response)
         })
     }
 }   
