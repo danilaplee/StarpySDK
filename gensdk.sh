@@ -6,12 +6,6 @@
 
 cd `dirname $0`/src &&
 
-#\rm `find src/me/starpy/sdk -name '*.class'` 2>/dev/null
-
-#\rm `find me.starpy.sdk -name '*.swift'` 2>/dev/null
-
-#\rm `find sdk-android/src/main/swift/Sources -name 'StarpySDK*.swift'` 2>/dev/null
-
 $JAVA_HOME/bin/javac -parameters me/starpy/sdk/*.java &&
 
 $JAVA_HOME/bin/jar cf /tmp/sdk.jar me/starpy/sdk/*.class &&
