@@ -15,7 +15,7 @@ class StarpySDK extends Activity implements Responder {
 
     private static void loadNativeDependencies() {
         // Load libraries
-        System.loadLibrary("StarpySDK");
+        System.loadLibrary("libstarpysdk.so");
     }
 
     /** Called when the activity is first created. */
