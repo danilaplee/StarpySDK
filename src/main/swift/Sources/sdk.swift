@@ -1,7 +1,7 @@
 import Foundation;
 import Dispatch;
 
-class StarpySDK {
+class StarpySDKMain {
 	
     let queue = DispatchQueue.global()
 
