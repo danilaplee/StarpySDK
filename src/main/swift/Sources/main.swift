@@ -9,13 +9,13 @@ var responder: StarpySDK_ResponderForward!
 class ListenerImpl: StarpySDK_ListenerBase {
 
     override func requestLogin(phone:String?) {
-        stSDK.RequestLogin(phone, done:{ response in
+        stSDK.RequestLogin(phone!, done:{ response in
             responder.requestedLogin(response)
         })
     }
 
     override func confirmLogin(code:String?) {
-        stSDK.ConfirmLogin(code, done: { response in
+        stSDK.ConfirmLogin(code!, done: { response in
             responder.confirmedLogin(response)
         })
     }
