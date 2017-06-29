@@ -9,16 +9,16 @@ public class StarpySDK_ListenerProxy implements me.starpy.sdk.StarpySDK.Listener
     }
 
 
-    public native void __RequestLogin( java.lang.String phone );
+    public native void __requestLogin( java.lang.String phone );
 
-    public void RequestLogin( java.lang.String phone)  {
-        __RequestLogin(phone);
+    public void requestLogin( java.lang.String phone)  {
+        __requestLogin(phone);
     }
 
 
-    public native void __ConfirmLogin( java.lang.String code );
+    public native void __confirmLogin( java.lang.String code );
 
-    public void ConfirmLogin( java.lang.String code)  {
-        __ConfirmLogin(code);
+    public void confirmLogin( java.lang.String code)  {
+        __confirmLogin(code);
     }
 }
