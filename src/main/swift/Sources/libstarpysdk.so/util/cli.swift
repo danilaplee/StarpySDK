@@ -27,6 +27,7 @@ class cliTool {
 
         if(action == "-request_login") 
         {
+            print("==============================")
         	print("======== request_login =======")
             print("==============================")
         	sdk.RequestLogin(param, done: { (status) in
@@ -38,13 +39,14 @@ class cliTool {
 
         if(action == "-confirm_login") 
         {
-        	print("======== confirm_login =======")
             
             if(getArgumentById(id: 3) == nil) {
-            print("==== not_enougth_arguments ===")
                 return printUsage();
             }
-            
+         
+            print("==============================")
+        	print("======== confirm_login =======") 
+            print("==============================")  
             let param2 = getArgumentById(id: 3)!["value"] as! String
             sdk.ConfirmLogin(param2, done: { (status) in
                 print(status.toJSONString());
@@ -75,7 +77,7 @@ class cliTool {
     
     func getArgumentById(id:Int) -> [String:Any]? 
     {
-        var contains = CommandLine.arguments.indices.contains(id)
+        let contains = CommandLine.arguments.indices.contains(id)
     	if(contains != nil && contains == true)
     	{
 	        let argument 		= CommandLine.arguments[id]

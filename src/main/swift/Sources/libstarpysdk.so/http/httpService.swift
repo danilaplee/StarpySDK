@@ -7,6 +7,8 @@ class httpService {
 
     var isBearerEnabled = false;
 
+    var authToken = ""
+
     let _default        = ["response":["status":"success","code":200]]
 
     func syncHttpCallWithMethod(url:String, params:[String:Any], request_method:String) -> [String:Any] 
@@ -42,22 +44,27 @@ class httpService {
     }
 
     func get(_ url:String) -> [String:Any] {
-
         return self.syncHttpCallWithMethod(url:url, params:[:], request_method:"GET")
-        
     }
 
-    func initBearerAuth() {
+    func put(_ url:String, params:[String:Any]) -> [String:Any] {
+        return self.syncHttpCallWithMethod(url:url, params:params, request_method:"PUT")
+    }
+
+    func post(_ url:String, params:[String:Any]) -> [String:Any] {
+        return self.syncHttpCallWithMethod(url:url, params:params, request_method:"POST")
+    }
+
+    func initBearerAuth(token:String) {
         isBearerEnabled = true;
+        authToken = token;
     }
 
     func addAuth(_ request:URLRequest) -> URLRequest {
 
         var request = request
 
-        if(isBearerEnabled) {
-            // request.addValue("Bearer "+sdk!.user!.data!.authToken, forHTTPHeaderField: "Authorization")
-        }
+        if(isBearerEnabled) { request.addValue("Bearer "+self.authToken, forHTTPHeaderField: "Authorization") };
 
         return request;
     }
