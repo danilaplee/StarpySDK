@@ -14,26 +14,33 @@ class cliTool {
 
     	var stop = false;
 
-    	if(getArgumentById(id: 1)["value"] == nil ||
-    		getArgumentById(id: 2)["value"] == nil) {
+    	if(getArgumentById(id: 1) == nil 
+    	|| getArgumentById(id: 2) == nil) {
+
+    		//STOP THE APP WHEN NOT ENOUGH ARGUMENTS
     		return printUsage();
     	}
 
-        let action = getArgumentById(id: 1)["value"] as! String
-        let param = getArgumentById(id: 2)["value"] as! String
+    	//INIT THE CLI MODE
+        let action 	= getArgumentById(id: 1)!["value"] as! String
+        let param 	= getArgumentById(id: 2)!["value"] as! String
 
-        if(action == "-request_login") {
+        if(action == "-request_login") 
+        {
         	print("======== request_login =======")
+        
         	sdk.RequestLogin(param, done: { (status) in
                 print(status.toJSONString())
+
                 stop = true;
             })
         }
 
-        if(action == "-confirm_login") {
+        if(action == "-confirm_login") 
+        {
         	print("======== confirm_login =======")
-            let param2 = getArgumentById(id: 3)["value"] as! String
-            // sdk.user?.auth = LoginData(param, group:current_role)
+        
+            let param2 = getArgumentById(id: 3)!["value"] as! String
             sdk.ConfirmLogin(param2, done: { (status) in
                 print(status.toJSONString());
                 stop = true;
@@ -61,12 +68,18 @@ class cliTool {
         return (OptionType(value: option), option)
     }
     
-    func getArgumentById(id:Int) -> [String:Any] {
-        let argument = CommandLine.arguments[id]
-        let start_index = argument.characters.index(argument.startIndex, offsetBy: 0)
-        let (option, value) = getOption(argument.substring(from: start_index))
-        let r = ["option":option, "value":value] as [String : Any]
-        return r
+    func getArgumentById(id:Int) -> [String:Any]? 
+    {
+    	if(CommandLine.arguments.count - 1 >= id) 
+    	{
+	        let argument 		= CommandLine.arguments[id]
+	        let start_index 	= argument.characters.index(argument.startIndex, offsetBy: 0)
+	        let (option, value) = getOption(argument.substring(from: start_index))
+	        return ["option":option, "value":value] as [String : Any]
+    	}
+    	else {
+			return nil
+    	}
     }
 }
 
