@@ -2,11 +2,11 @@ import Foundation
 
 public class StarpySDKStatus {
 	
-	var statusText:String?
+	public var statusText:String?
 
-	var statusCode:Int?
+	public var statusCode:Int?
 
-	var error:String?
+	public var error:String?
 
 	init(_ params:[String:Any]) 
 	{	
@@ -19,7 +19,7 @@ public class StarpySDKStatus {
 		if(_result["error"]     != nil) { error 		= (_result["error"] as! [String:Any])["message"] as! String }
 	}
 
-	func toJSONString() -> String
+	public func toJSONString() -> String
 	{
 		let j = [
 
