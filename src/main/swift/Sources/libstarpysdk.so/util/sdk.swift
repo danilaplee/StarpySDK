@@ -2,6 +2,7 @@ import Foundation;
 import Dispatch;
 
 public class StarpySDKMain {
+	
 	//PUBLIC COMPLETION HANDLER WITH StarpySDKStatus RESPONSE
 	public typealias CompletionHandler = (_ status: StarpySDKStatus) -> Void
 
@@ -14,7 +15,7 @@ public class StarpySDKMain {
     var http:httpService?
     var db:dbService?
 
-	init(_ env:sdkEnv?) {
+	init(_ env:StarpySDKEnv?) {
 
 		config 	= sdkConfig(env)
 		cli 	= cliTool(self)
