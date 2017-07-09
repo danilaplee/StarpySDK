@@ -1,3 +1,4 @@
+#if os(Android) 
 
 import java_swift
 
@@ -18,4 +19,4 @@ open class StarpySDKForward: JNIObjectForward, StarpySDK {
 
 }
 
-
+#endif

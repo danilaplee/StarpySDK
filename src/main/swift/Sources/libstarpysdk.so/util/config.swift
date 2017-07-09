@@ -1,8 +1,19 @@
+import Foundation;
+import Dispatch;
 
-class sdkEnv {
-	
+enum sdkEnv {
+	case dev
+    case prod
+    case test
+    case local
 }
 
-class SDKConfig {
-	
+class sdkConfig {
+	var env:sdkEnv = .dev
+
+	init(_ e:sdkEnv?) {
+		if(e != nil) {
+			env = e!;
+		}
+	}
 }

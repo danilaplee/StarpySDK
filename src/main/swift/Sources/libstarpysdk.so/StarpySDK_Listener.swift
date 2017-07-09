@@ -1,3 +1,4 @@
+#if os(Android) 
 
 import java_swift
 
@@ -130,3 +131,5 @@ open class StarpySDK_ListenerBase: JNIObjectProxy, StarpySDK_Listener {
     }
 
 }
+
+#endif

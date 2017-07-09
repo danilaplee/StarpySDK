@@ -1,25 +1,35 @@
 import Foundation;
 import Dispatch;
 
-class StarpySDKMain {
+public class StarpySDKMain {
 	
     let queue = DispatchQueue.global()
-    let config:SDKConfig?
-    let cli:cliTool?
-    let http:HttpService?
+    let config:sdkConfig
+    var cli:cliTool?
+    var http:httpService?
+    var db:dbService?
 
-	public typealias CompletionHandler = (_ status: SDKStatus) -> Void
+	public typealias CompletionHandler = (_ status: StarpySDKStatus) -> Void
 
-	init(env:SDKEnvParams) {
-		config 	= SDKConfig(env)
+	init(_ env:sdkEnv?) {
+
+		config 	= sdkConfig(env)
 		cli 	= cliTool(self)
-		http 	= HttpService(self)
+		http 	= httpService(self)
+		db 		= dbService(self)
+		
+	}
+
+	public func staticMode() {
+
+		return cli!.staticMode();
 	}
 
 	public func RequestLogin(_ phone:String, done:@escaping CompletionHandler) {
         queue.async() {
         	
-			done(SDKStatus(["status":"success","code":200]))
+        	let _status = StarpySDKStatus(self.http!._default)
+			done(_status)
 		}
 
 	}
@@ -27,7 +37,8 @@ class StarpySDKMain {
 	public func ConfirmLogin(_ code:String, done:@escaping CompletionHandler) {
         queue.async() {
 
-			done(SDKStatus(["status":"success","code":200]))
+        	let _status = StarpySDKStatus(self.http!._default)
+			done(_status)
 		}
 	}
 }

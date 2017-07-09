@@ -3,22 +3,21 @@ package me.starpy.app;
 import android.app.Activity;
 import android.os.Handler;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import me.starpy.sdk.StarpySDK.Listener;
 import me.starpy.sdk.StarpySDK.Responder;
 
-class StarpySDKTestApp extends Activity implements Responder {
+class StarpySDK extends Activity implements Responder {
 
     static Listener listener;
     Handler mainHandler;
 
     private static void loadNativeDependencies() {
-        // Load libraries
-        System.loadLibrary("libstarpysdk.so");
+
+        System.loadLibrary("starpysdk");
+
     }
 
-    /** Called when the activity is first created. */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -26,17 +25,18 @@ class StarpySDKTestApp extends Activity implements Responder {
         loadNativeDependencies();
         listener = bind( this );
     }
+
     @Override
     public void requestedLogin(String result) {
-
+        
+        StarpySDKStatus status = new StarpySDKStatus(result);
     }
 
     @Override
     public void confirmedLogin(String result) {
 
+        StarpySDKStatus status = new StarpySDKStatus(result);
     }
-
-
 
     native Listener bind( Responder self );
 }
