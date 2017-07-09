@@ -2,21 +2,21 @@ import Foundation
 
 public class StarpySDKStatus {
 	
-	public var statusText:String?
+	public var statusText:String = ""
 
-	public var statusCode:Int?
+	public var statusCode:Int = 0
 
-	public var error:String?
+	public var error:String = ""
 
 	init(_ params:[String:Any]) 
 	{	
 		let _result = params["response"] as! [String:Any]
 
-		if(_result["status"]    != nil) { statusText 	= _result["status"] as! String }
+		if(_result["status"]    != nil) { statusText 	= _result["status"]! as! String }
 
-		if(_result["code"]      != nil) { statusCode 	= _result["code"] 	as! Int }
+		if(_result["code"]      != nil) { statusCode 	= _result["code"]! 	as! Int }
 
-		if(_result["error"]     != nil) { error 		= (_result["error"] as! [String:Any])["message"] as! String }
+		if(_result["error"]     != nil) { error 		= (_result["error"]! as! [String:Any])["message"] as! String }
 	}
 
 	public func toJSONString() -> String

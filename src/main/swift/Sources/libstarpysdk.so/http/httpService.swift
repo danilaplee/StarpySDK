@@ -34,7 +34,7 @@ class httpService {
             }
 
             var jsonResponse = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                jsonResponse["code"] = 200;
+                jsonResponse["code"] = response!.statusCode;
 
             return ["response":jsonResponse];
         }
