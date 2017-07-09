@@ -10,11 +10,13 @@ public class StarpySDKStatus {
 
 	init(_ params:[String:Any]) 
 	{	
-		if(params["status"] != nil) { statusText 	= params["status"] 	as! String }
+		let _result = params["response"] as! [String:Any]
 
-		if(params["code"] 	!= nil) { statusCode 	= params["code"] 	as! Int }
+		if(_result["status"] != nil) { statusText 	= _result["status"] 	as! String }
 
-		if(params["error"] 	!= nil) { error 		= params["error"] 	as! String }
+		if(_result["code"] 	!= nil) { statusCode 	= _result["code"] 	as! Int }
+
+		if(_result["error"] != nil) { error 		= _result["error"] 	as! String }
 	}
 
 	func toJSONString() -> String

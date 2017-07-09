@@ -2,7 +2,7 @@ import Foundation;
 import Dispatch;
 
 public class StarpySDKMain {
-	
+
 	//PUBLIC COMPLETION HANDLER WITH StarpySDKStatus RESPONSE
 	public typealias CompletionHandler = (_ status: StarpySDKStatus) -> Void
 
@@ -31,7 +31,6 @@ public class StarpySDKMain {
 
 	public func RequestLogin(_ phone:String, done:@escaping CompletionHandler) {
         queue.async() {
-        	
         	let _status = StarpySDKStatus(self.http!._default)
 			done(_status)
 		}
@@ -40,7 +39,6 @@ public class StarpySDKMain {
 
 	public func ConfirmLogin(_ code:String, done:@escaping CompletionHandler) {
         queue.async() {
-
         	let _status = StarpySDKStatus(self.http!._default)
 			done(_status)
 		}

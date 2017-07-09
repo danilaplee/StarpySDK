@@ -13,7 +13,7 @@ class cliTool {
     func staticMode() {
 
     	var stop = false;
-
+        
     	if(getArgumentById(id: 1) == nil 
     	|| getArgumentById(id: 2) == nil) {
 
@@ -28,10 +28,10 @@ class cliTool {
         if(action == "-request_login") 
         {
         	print("======== request_login =======")
-        
+            print("==============================")
         	sdk.RequestLogin(param, done: { (status) in
                 print(status.toJSONString())
-
+                print("==============================")
                 stop = true;
             })
         }
@@ -39,10 +39,16 @@ class cliTool {
         if(action == "-confirm_login") 
         {
         	print("======== confirm_login =======")
-        
+            
+            if(getArgumentById(id: 3) == nil) {
+            print("==== not_enougth_arguments ===")
+                return printUsage();
+            }
+            
             let param2 = getArgumentById(id: 3)!["value"] as! String
             sdk.ConfirmLogin(param2, done: { (status) in
                 print(status.toJSONString());
+                print("==============================")
                 stop = true;
             })
         }
@@ -57,7 +63,6 @@ class cliTool {
     func printUsage() {
         let executableName = CommandLine.arguments[0] as String
 
-        print("usage:")
         print("================ SDK METHODS ===============")
         print("\(executableName) -request_login phone")
         print("\(executableName) -confirm_login phone code")
@@ -70,7 +75,8 @@ class cliTool {
     
     func getArgumentById(id:Int) -> [String:Any]? 
     {
-    	if(CommandLine.arguments.count - 1 >= id) 
+        var contains = CommandLine.arguments.indices.contains(id)
+    	if(contains != nil && contains == true)
     	{
 	        let argument 		= CommandLine.arguments[id]
 	        let start_index 	= argument.characters.index(argument.startIndex, offsetBy: 0)
@@ -82,7 +88,6 @@ class cliTool {
     	}
     }
 }
-
 
 enum OptionType: String {
     case request_login  = "-request_login"
