@@ -1,0 +1,8 @@
+
+class sdkEnv {
+	
+}
+
+class SDKConfig {
+	
+}

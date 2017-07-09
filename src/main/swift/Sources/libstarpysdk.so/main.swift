@@ -1,12 +1,12 @@
-
 import java_swift
 @_exported import Foundation
 
-let stSDK = StarpySDKMain()
 
 var responder: StarpySDK_ResponderForward!
 
 class ListenerImpl: StarpySDK_ListenerBase {
+
+    let stSDK = StarpySDKMain()
 
     override func requestLogin(phone:String?) {
         stSDK.RequestLogin(phone!, done:{ response in
