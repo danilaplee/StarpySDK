@@ -2,14 +2,17 @@ import Foundation;
 import Dispatch;
 
 public class StarpySDKMain {
-	
+	//PUBLIC COMPLETION HANDLER WITH StarpySDKStatus RESPONSE
+	public typealias CompletionHandler = (_ status: StarpySDKStatus) -> Void
+
+	//APP CONSTANTS
     let queue = DispatchQueue.global()
     let config:sdkConfig
+
+    //APP SERVICES
     var cli:cliTool?
     var http:httpService?
     var db:dbService?
-
-	public typealias CompletionHandler = (_ status: StarpySDKStatus) -> Void
 
 	init(_ env:sdkEnv?) {
 
