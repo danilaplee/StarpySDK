@@ -1,2 +1,3 @@
 .build
-xcodeproj
+libstarpysdk.so.xcodeproj
+android_toolchain3.tgz
