@@ -16,7 +16,7 @@ public class StarpySDKStatus {
 
 		if(_result["code"]      != nil) { statusCode 	= _result["code"] 	as! Int }
 
-		if(_result["error"]     != nil) { error 		= _result["error"] 	as! String }
+		if(_result["error"]     != nil) { error 		= (_result["error"] as! [String:Any])["message"] as! String }
 	}
 
 	func toJSONString() -> String
