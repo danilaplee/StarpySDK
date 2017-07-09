@@ -78,7 +78,7 @@ class cliTool {
     func getArgumentById(id:Int) -> [String:Any]? 
     {
         let contains = CommandLine.arguments.indices.contains(id)
-    	if(contains != nil && contains == true)
+    	if(contains == true)
     	{
 	        let argument 		= CommandLine.arguments[id]
 	        let start_index 	= argument.characters.index(argument.startIndex, offsetBy: 0)
