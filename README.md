@@ -4,8 +4,4 @@ this a template application for generative building of a crossplatform mobile sd
 
 Foundation Framework, 
 
-SwiftJava Framework, 
-
-Cordova Framework,
-
-React-Native Framework
+SwiftJava Framework
